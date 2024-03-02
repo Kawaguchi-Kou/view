@@ -1,73 +1,74 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f0f0f0;
-    padding: 20px;
-  }
-  
-  h1 {
-    color: #333;
-  }
-  
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  color: #333;
+}
+
+.idol-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  justify-content: center;
+}
+
+.idol-card {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.idol-image {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.idol-content {
+  color: #555;
+}
+
+/* Tablet View */
+@media screen and (min-width: 772px) and (max-width: 991px) {
   .idol-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-  
-  .idol-card {
-    flex: 0 0 48%;
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .idol-image {
-    width: 400px;
-    height: 500px;
-    border-radius: 4px;
-    margin-bottom: 8px;
-  }
-  
-  .idol-name {
-    margin-top: 8px;
-    color: #555;
-  }
-  
-
-  /* Tablet View */
-@media screen and (max-width: 772px) {
-  .idol-card {
-    flex-basis: 45%;
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .idol-image {
-    max-height: 30vh;
+  .idol-card {
+    border-radius: 50%;
+    grid-column-end: span 1;
   }
 }
 
 /* Large Screen View */
-@media screen and (min-width: 773px) and (max-width: 998px) {
-  .idol-card {
-    flex-basis: 45%;
+@media screen and (min-width: 992px) {
+  .idol-container {
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .idol-image {
-    max-height: 50vh;
+  .idol-card:nth-child(3n+1) {
+    grid-column-end: span 2;
+    border-radius: 0;
   }
 }
 
-/* Extra Large Screen View */
-@media screen and (min-width: 999px) {
-  .idol-card {
-    flex-basis: 30%;
+/* Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  body {
+    scroll-behavior: auto;
   }
+}
 
-  .idol-image {
-    max-height: 60vh;
+/* Dark Color Scheme */
+@media (prefers-color-scheme: dark) {
+  .idol-card {
+    background-color: #222;
+    color: #FFFF99;
+    border-color: #000;
   }
 }
   
